@@ -1,1 +1,162 @@
-<PLACEHOLDER>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a0f14" />
+  <title>iloveyousmmdaniwani</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧸</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sky"></div>
+  <div class="stars" aria-hidden="true">
+    <i>✦</i><i>✧</i><i>·</i><i>✦</i><i>·</i><i>✧</i><i>✦</i><i>♡</i><i>✦</i><i>·</i><i>✧</i><i>✦</i>
+  </div>
+  <div class="floaters" id="floaters"></div>
+
+  <header class="topbar">
+    <div class="brand">for my pretty baby ♡</div>
+    <div class="mini-date">dani × darry</div>
+  </header>
+
+  <main>
+    <section class="hero card">
+      <div class="pumpkin" style="top:18px;left:10%;">🎃</div>
+      <div class="pumpkin" style="top:26px;right:12%;animation-delay:1s;">🦇</div>
+      <div class="pixel-heart" aria-hidden="true">♥</div>
+      <div class="bears" aria-hidden="true">
+        <div class="bear mocha">
+          <div class="head">
+            <div class="ear l"></div><div class="ear r"></div>
+            <div class="eye l"></div><div class="eye r"></div>
+            <div class="nose"></div>
+          </div>
+          <div class="body"><div class="scarf"></div></div>
+        </div>
+        <div class="bear milk">
+          <div class="head">
+            <div class="ear l"></div><div class="ear r"></div>
+            <div class="eye l"></div><div class="eye r"></div>
+            <div class="nose"></div>
+          </div>
+          <div class="body"><div class="scarf"></div></div>
+        </div>
+      </div>
+      <p class="eyebrow">a little halloween soft for you</p>
+      <h1>iloveyousmmdaniwani</h1>
+      <p class="subtitle-soft">do you still love me?</p>
+      <div class="choices">
+        <button class="btn primary" id="yesBtn">YES ♡</button>
+        <button class="btn ghost" id="noBtn">no…</button>
+      </div>
+      <p class="reaction" id="reaction"></p>
+    </section>
+
+    <article class="card counter-box">
+      <div class="counter-heart">♡</div>
+      <div class="counter-title">our little date</div>
+      <div class="counter-date">December 3rd, 2025</div>
+      <div id="days">319</div>
+      <div class="days-label">days together</div>
+      <div id="timeTogether">319 days · 00:00:00</div>
+    </article>
+
+    <div class="grid-2">
+      <article class="card">
+        <h2>our song</h2>
+        <button id="songBtn" class="btn primary" style="width:100%;">▶ open song</button>
+        <div id="songPanel" class="song-panel">
+          <div style="font-family:'Press Start 2P';font-size:11px;color:var(--accent);text-align:center;">our song ♡</div>
+          <iframe title="Spotify player"
+            src="https://open.spotify.com/embed/track/7H3ojI1BsVy0dEJENqMt1k?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+          <a href="https://open.spotify.com/track/7H3ojI1BsVy0dEJENqMt1k" target="_blank" rel="noopener" class="spotify-link">open in Spotify ↗</a>
+        </div>
+      </article>
+      <article class="card">
+        <h2>from darry</h2>
+        <p class="love-note">
+          i will hold hands with you until i die<br>
+          and when our hearts collide in june<br>
+          i will shower u with my love
+          <span class="from">— from darry</span>
+        </p>
+      </article>
+    </div>
+
+    <article class="card">
+      <h2>things we share</h2>
+      <div class="memories">
+        <div class="mem-chip"><span>🎮</span>roblox nights</div>
+        <div class="mem-chip"><span>🎙️</span>long vcs</div>
+        <div class="mem-chip"><span>💬</span>discord spam</div>
+        <div class="mem-chip"><span>🧸</span>soft hours</div>
+        <div class="mem-chip"><span>🎃</span>halloween soft</div>
+        <div class="mem-chip"><span>♡</span>us</div>
+      </div>
+    </article>
+
+    <article class="card" style="text-align:center;">
+      <h2>little secrets</h2>
+      <p style="color:var(--muted);margin-bottom:14px;">tap the soft things…</p>
+      <div class="secrets-row">
+        <button class="secret-btn" id="secret1" title="a memory" aria-label="baby photo">🧸</button>
+        <button class="secret-btn" id="secret2" title="another secret" aria-label="gif">✧</button>
+        <button class="secret-btn" id="secret3" title="letter" aria-label="letter">💌</button>
+      </div>
+    </article>
+  </main>
+
+  <footer>made with all my soft for you · darry · 🎃♡</footer>
+
+  <div class="modal-overlay" id="modal1">
+    <div class="letter">
+      <button class="close" data-close="modal1">×</button>
+      <img src="https://litter.catbox.moe/dnli5k.jpg" alt="my pretty baby" />
+      <h3>my pretty baby</h3>
+      <p>from darry my baby
+we have spent sm time on roblox, vc, discord and all these other things
+this is how id like my babys to look
+<span class="hearts">♡ ♡ ♡</span></p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal2">
+    <div class="letter">
+      <button class="close" data-close="modal2">×</button>
+      <div class="gif-wrap">
+        <img src="https://litter.catbox.moe/0pmw7k.gif" alt="us" />
+      </div>
+      <h3>us</h3>
+      <p>i will hold hands with you until i die
+and when our hearts collide in june
+i will shower u with my love
+<span class="hearts">♡ from darry ♡</span></p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal3">
+    <div class="letter">
+      <button class="close" data-close="modal3">×</button>
+      <h3>for dani,</h3>
+      <p>you are my soft place and my favorite person.
+every late night, every voice call, every silly roblox run — i keep them all.
+
+since december 3rd, 2025… and still choosing you.
+
+i choose you. today, june, forever.
+
+<span class="hearts">♡ darry</span></p>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
