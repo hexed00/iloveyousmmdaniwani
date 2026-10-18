@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iloveyousmmdaniwani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink: #ff9ec7;
+      --soft-pink: #ffd6e7;
+      --cream: #fff8f5;
+      --rose: #ff6b9d;
+      --deep: #c44569;
+      --text: #5a3a45;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #fff0f5 0%, #ffe4ec 40%, #fff8f5 100%);
+      font-family: 'Quicksand', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🧸</text></svg>') 12 12, auto;
+      position: relative;
+    }
+
+    /* floating hearts background */
+    .hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.35;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.3; }
+      100% {
+        transform: translateY(-10vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px 2px rgba(255, 182, 193, 0.9);
+      animation: twinkle 2.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.6); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+      text-align: center;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 600;
+      color: var(--deep);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      animation: softFade 1.4s ease-out;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #a86b7d;
+      margin-bottom: 48px;
+      animation: softFade 1.6s ease-out;
+    }
+
+    @keyframes softFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 182, 193, 0.45);
+      border-radius: 28px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 50px rgba(255, 107, 157, 0.12);
+      animation: softFade 1.8s ease-out;
+    }
+
+    .love-line {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 3.5vw, 1.45rem);
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--deep);
+      margin-bottom: 28px;
+    }
+
+    .from {
+      font-size: 0.95rem;
+      color: #c44569;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+      margin: 32px auto;
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: #c9a0ab;
+      margin-top: 36px;
+      letter-spacing: 0.3px;
+    }
+
+    /* secret buttons */
+    .secret-zone {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .secret-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 182, 193, 0.25);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .secret-btn:hover {
+      background: rgba(255, 107, 157, 0.35);
+      transform: scale(1.12);
+      box-shadow: 0 0 20px rgba(255, 107, 157, 0.35);
+    }
+
+    .secret-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 182, 193, 0.5);
+      animation: pulseRing 2.2s ease-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(90, 40, 60, 0.55);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: linear-gradient(175deg, #fff9fb 0%, #ffeef5 100%);
+      border-radius: 28px;
+      max-width: 480px;
+      width: 100%;
+      padding: 28px 24px 32px;
+      box-shadow: 0 30px 80px rgba(196, 69, 105, 0.25);
+      transform: scale(0.88) translateY(20px);
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal img, .modal .gif-wrap {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 12px 30px rgba(196, 69, 105, 0.15);
+    }
+
+    .modal .gif-wrap {
+      overflow: hidden;
+      max-height: 320px;
+    }
+
+    .modal .gif-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .modal-text {
+      margin-top: 22px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--deep);
+      text-align: center;
+    }
+
+    .modal-text .hearts {
+      color: var(--rose);
+      letter-spacing: 2px;
+      margin-top: 10px;
+      display: block;
+      font-size: 1.3rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 182, 193, 0.4);
+      color: var(--deep);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 107, 157, 0.55);
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #d4a5b5;
+      letter-spacing: 1px;
+    }
+
+    /* little decorative elements */
+    .deco {
+      position: absolute;
+      font-size: 1.6rem;
+      opacity: 0.5;
+      animation: gentleBob 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gentleBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <div class="container">
+    <div class="deco" style="top: 30px; left: 8%;">♡</div>
+    <div class="deco" style="top: 80px; right: 10%; animation-delay: 1.2s;">✦</div>
+
+    <h1 class="title">iloveyousmmdaniwani</h1>
+    <p class="subtitle">for my pretty baby ♡</p>
+
+    <div class="card">
+      <p class="love-line">
+        i will hold hands with you until i die<br>
+        and when our hearts collide in june<br>
+        i will shower u with my love
+      </p>
+      <p class="from">— from darry</p>
+
+      <div class="divider"></div>
+
+      <p style="font-size: 0.95rem; color: #9a6b7a; line-height: 1.6;">
+        every late night on roblox,<br>
+        every voice call that stretched too long,<br>
+        every message on discord…<br>
+        i keep them all.
+      </p>
+
+      <p class="hint">there are little secrets waiting for you…</p>
+    </div>
+
+    <div class="secret-zone">
+      <button class="secret-btn" id="secret1" title="a little memory" aria-label="secret memory">🧸</button>
+      <button class="secret-btn" id="secret2" title="another secret" aria-label="secret gif">✧</button>
+    </div>
+
+    <p class="footer">made with all my soft for you · darry</p>
+  </div>
+
+  <!-- Modal 1: baby photo -->
+  <div class="modal-overlay" id="modal1">
+    <div class="modal">
+      <button class="close-btn" data-close="modal1">✕</button>
+      <img src="baby.png" alt="my pretty baby" />
+      <p class="modal-text">
+        from darry my baby<br>
+        we have spent sm time on roblox, vc, discord and all these other things<br>
+        this is how id like my babys to look
+        <span class="hearts">♡ ♡ ♡</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal 2: gif -->
+  <div class="modal-overlay" id="modal2">
+    <div class="modal">
+      <button class="close-btn" data-close="modal2">✕</button>
+      <div class="gif-wrap">
+        <img src="secret.gif" alt="us" />
+      </div>
+      <p class="modal-text">
+        i will hold hands with you until i die<br>
+        and when our hearts collide in june<br>
+        i will shower u with my love
+        <span class="hearts">♡ from darry ♡</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // floating hearts
+    const heartsBg = document.getElementById('heartsBg');
+    const heartChars = ['♡', '♥', '❀', '✦', '⋆'];
+    for (let i = 0; i < 22; i++) {
+      const el = document.createElement('div');
+      el.className = 'floating-heart';
+      el.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (12 + Math.random() * 18) + 's';
+      el.style.animationDelay = (Math.random() * 12) + 's';
+      el.style.fontSize = (14 + Math.random() * 16) + 'px';
+      heartsBg.appendChild(el);
+    }
+
+    // sparkles
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.top = Math.random() * 100 + 'vh';
+      s.style.animationDelay = (Math.random() * 3) + 's';
+      s.style.animationDuration = (1.8 + Math.random() * 2) + 's';
+      document.body.appendChild(s);
+    }
+
+    // modals
+    const modal1 = document.getElementById('modal1');
+    const modal2 = document.getElementById('modal2');
+
+    document.getElementById('secret1').addEventListener('click', () => {
+      modal1.classList.add('active');
+    });
+
+    document.getElementById('secret2').addEventListener('click', () => {
+      modal2.classList.add('active');
+    });
+
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById(btn.dataset.close).classList.remove('active');
+      });
+    });
+
+    // close on overlay click
+    [modal1, modal2].forEach(m => {
+      m.addEventListener('click', (e) => {
+        if (e.target === m) m.classList.remove('active');
+      });
+    });
+
+    // escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal1.classList.remove('active');
+        modal2.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
