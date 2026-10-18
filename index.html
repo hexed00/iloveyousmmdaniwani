@@ -3,442 +3,433 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a0f14" />
   <title>iloveyousmmdaniwani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --pink: #ff9ec7;
-      --soft-pink: #ffd6e7;
-      --cream: #fff8f5;
-      --rose: #ff6b9d;
-      --deep: #c44569;
-      --text: #5a3a45;
+      --bg: #1a0f14; --panel: #2a1520; --panel2: #3d1f2e;
+      --text: #fff0e6; --muted: #c9a8b0; --accent: #ff8fab;
+      --accent2: #ffb347; --line: #8b4558; --shadow: #0d0609;
     }
-
+    html { scroll-behavior: smooth; }
     body {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #fff0f5 0%, #ffe4ec 40%, #fff8f5 100%);
-      font-family: 'Quicksand', sans-serif;
-      color: var(--text);
-      overflow-x: hidden;
-      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🧸</text></svg>') 12 12, auto;
-      position: relative;
+      min-height: 100vh; background: var(--bg); color: var(--text);
+      font-family: 'VT323', monospace; font-size: 21px; overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="22">🧸</text></svg>') 12 12, auto;
     }
-
-    /* floating hearts background */
-    .hearts-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
+    .sky {
+      position: fixed; inset: 0; z-index: -3;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255,143,171,.18), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(255,159,67,.14), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(179,136,255,.1), transparent 40%),
+        linear-gradient(180deg, #1a0f14 0%, #120a18 55%, #0a0610 100%);
     }
-
-    .floating-heart {
-      position: absolute;
-      font-size: 18px;
-      opacity: 0.35;
-      animation: floatUp linear infinite;
-      user-select: none;
+    .stars { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .6; }
+    .stars i { position: absolute; font-style: normal; color: #ffd6e7; animation: twinkle 2.6s steps(2, end) infinite; }
+    .stars i:nth-child(1){left:8%;top:12%} .stars i:nth-child(2){left:78%;top:9%}
+    .stars i:nth-child(3){left:22%;top:42%} .stars i:nth-child(4){left:90%;top:55%}
+    .stars i:nth-child(5){left:65%;top:28%} .stars i:nth-child(6){left:40%;top:8%}
+    .stars i:nth-child(7){left:52%;top:72%} .stars i:nth-child(8){left:15%;top:68%}
+    .stars i:nth-child(9){left:88%;top:35%} .stars i:nth-child(10){left:33%;top:22%}
+    @keyframes twinkle { 0%,100%{opacity:.25} 50%{opacity:1} }
+    .floaters { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+    .floater { position: absolute; font-size: 18px; opacity: .35; animation: drift linear infinite; }
+    @keyframes drift {
+      0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+      8% { opacity: .4; } 92% { opacity: .3; }
+      100% { transform: translateY(-8vh) rotate(360deg); opacity: 0; }
     }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg) scale(0.6);
-        opacity: 0;
-      }
-      10% { opacity: 0.4; }
-      90% { opacity: 0.3; }
-      100% {
-        transform: translateY(-10vh) rotate(360deg) scale(1.1);
-        opacity: 0;
-      }
+    .topbar {
+      width: min(980px, 92%); margin: 18px auto 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
     }
-
-    /* sparkles */
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 8px 2px rgba(255, 182, 193, 0.9);
-      animation: twinkle 2.5s ease-in-out infinite;
-      pointer-events: none;
+    .brand {
+      font-family: 'Press Start 2P', monospace; font-size: clamp(11px, 2.8vw, 14px);
+      color: var(--accent); text-shadow: 3px 3px 0 var(--shadow);
     }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(0.6); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    .container {
-      position: relative;
-      z-index: 2;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-      text-align: center;
-    }
-
-    .title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 6vw, 2.8rem);
-      font-weight: 600;
-      color: var(--deep);
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      animation: softFade 1.4s ease-out;
-    }
-
-    .subtitle {
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: #a86b7d;
-      margin-bottom: 48px;
-      animation: softFade 1.6s ease-out;
-    }
-
-    @keyframes softFade {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .mini-date { font-size: 18px; color: var(--muted); }
+    main { width: min(980px, 92%); margin: 18px auto 60px; }
     .card {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 182, 193, 0.45);
-      border-radius: 28px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 50px rgba(255, 107, 157, 0.12);
-      animation: softFade 1.8s ease-out;
+      border: 3px solid var(--line); background: rgba(26, 15, 28, .88);
+      box-shadow: 8px 8px 0 var(--shadow); border-radius: 6px;
+      padding: 28px 22px; margin-bottom: 22px;
     }
-
-    .love-line {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.15rem, 3.5vw, 1.45rem);
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--deep);
-      margin-bottom: 28px;
+    .hero { text-align: center; position: relative; overflow: hidden; padding-top: 36px; padding-bottom: 32px; }
+    .pixel-heart {
+      font-size: 64px; line-height: 1; color: var(--accent);
+      text-shadow: 5px 5px 0 var(--shadow);
+      animation: heartbeat 1.35s steps(2, end) infinite; display: inline-block;
     }
-
-    .from {
-      font-size: 0.95rem;
-      color: #c44569;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); } 40% { transform: scale(1.12); } 60% { transform: scale(1.05); }
     }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--pink), transparent);
-      margin: 32px auto;
+    .bears {
+      height: 170px; display: flex; justify-content: center; align-items: flex-end;
+      margin: 10px 0 8px; gap: 8px;
     }
-
-    .hint {
-      font-size: 0.85rem;
-      color: #c9a0ab;
-      margin-top: 36px;
-      letter-spacing: 0.3px;
+    .bear { width: 90px; height: 110px; position: relative; animation: breathe 2.4s ease-in-out infinite; }
+    .bear:nth-child(2) { animation-delay: .4s; }
+    @keyframes breathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .bear .head {
+      width: 70px; height: 62px; border-radius: 50%; background: #c47a5a;
+      border: 4px solid #4a2b32; margin: 0 auto; position: relative; z-index: 2;
     }
-
-    /* secret buttons */
-    .secret-zone {
-      margin-top: 48px;
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
+    .bear.milk .head { background: #f1dfc7; border-color: #795b5d; }
+    .bear .ear {
+      width: 22px; height: 22px; border-radius: 50%; background: inherit;
+      border: 4px solid inherit; position: absolute; top: -6px;
     }
-
+    .bear .ear.l { left: 4px; } .bear .ear.r { right: 4px; }
+    .bear .eye {
+      width: 8px; height: 10px; background: #2b1b24; border-radius: 2px;
+      position: absolute; top: 28px; animation: blink 5s steps(1) infinite;
+    }
+    .bear .eye.l { left: 18px; } .bear .eye.r { right: 18px; }
+    @keyframes blink { 0%,92%,100%{height:10px} 94%,96%{height:2px} }
+    .bear .nose {
+      width: 10px; height: 7px; background: #4a2b32; border-radius: 3px;
+      position: absolute; left: 50%; top: 40px; transform: translateX(-50%);
+    }
+    .bear .body {
+      width: 58px; height: 42px; border-radius: 18px 18px 12px 12px;
+      background: #c47a5a; border: 4px solid #4a2b32; margin: -8px auto 0; position: relative; z-index: 1;
+    }
+    .bear.milk .body { background: #f1dfc7; border-color: #795b5d; }
+    .bear .scarf {
+      position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+      width: 36px; height: 12px; background: #ff8fab; border-radius: 4px; z-index: 3;
+    }
+    .bear.milk .scarf { background: #ffb347; }
+    .eyebrow { color: var(--muted); font-size: 20px; margin: 14px 0 6px; }
+    h1 {
+      font-family: 'Press Start 2P', monospace; font-size: clamp(16px, 3.8vw, 26px);
+      line-height: 1.55; margin: 8px 0 12px; color: var(--text);
+    }
+    .subtitle-soft { font-family: 'Quicksand', sans-serif; font-size: 15px; color: var(--muted); margin-bottom: 18px; }
+    .choices { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+    .btn {
+      font-family: 'Press Start 2P', monospace; font-size: 11px; padding: 14px 18px;
+      border: 3px solid var(--line); background: var(--panel2); color: var(--text);
+      cursor: pointer; box-shadow: 4px 4px 0 var(--shadow); transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--shadow); }
+    .btn.primary { background: var(--accent); color: #2a1018; border-color: #c45a78; }
+    .btn.ghost { background: transparent; }
+    .btn.wiggle { animation: wiggle .45s ease; }
+    @keyframes wiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-6deg)} 75%{transform:rotate(6deg)} }
+    .btn.celebrate { animation: celebrate .6s ease; }
+    @keyframes celebrate { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+    .reaction { color: var(--muted); min-height: 28px; margin-top: 14px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+    h2 { font-family: 'Press Start 2P', monospace; font-size: 13px; margin: 0 0 14px; color: var(--accent2); }
+    .counter-box { text-align: center; padding: 8px 0; }
+    #days {
+      font-family: 'Press Start 2P', monospace; font-size: clamp(22px, 6vw, 36px);
+      color: var(--accent); text-shadow: 3px 3px 0 var(--shadow);
+    }
+    #timeTogether { color: var(--muted); margin-top: 8px; font-size: 20px; }
+    .love-note {
+      font-family: 'Quicksand', sans-serif; font-size: 16px; line-height: 1.7;
+      color: #f0d6de; text-align: center;
+    }
+    .love-note .from {
+      display: block; margin-top: 14px; color: var(--accent);
+      font-family: 'Press Start 2P', monospace; font-size: 11px;
+    }
+    .secrets-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
     .secret-btn {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 182, 193, 0.25);
-      cursor: pointer;
-      transition: all 0.35s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      position: relative;
-      overflow: hidden;
+      width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--line);
+      background: var(--panel2); font-size: 22px; cursor: pointer;
+      box-shadow: 4px 4px 0 var(--shadow); transition: transform .2s, box-shadow .2s; position: relative;
     }
-
-    .secret-btn:hover {
-      background: rgba(255, 107, 157, 0.35);
-      transform: scale(1.12);
-      box-shadow: 0 0 20px rgba(255, 107, 157, 0.35);
-    }
-
+    .secret-btn:hover { transform: scale(1.1) translate(-1px, -1px); box-shadow: 6px 6px 0 var(--shadow); }
     .secret-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 182, 193, 0.5);
-      animation: pulseRing 2.2s ease-out infinite;
+      content: ''; position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(255,143,171,.4); animation: pulseRing 2s ease-out infinite;
     }
-
-    @keyframes pulseRing {
-      0% { transform: scale(1); opacity: 0.6; }
-      100% { transform: scale(1.6); opacity: 0; }
+    @keyframes pulseRing { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(1.45); opacity: 0; } }
+    .song-panel {
+      display: none; margin-top: 16px; padding: 14px;
+      border: 2px solid var(--line); background: rgba(0,0,0,.35); border-radius: 6px;
     }
-
-    /* modal */
+    .song-panel.open { display: block; }
+    .song-panel iframe { width: 100%; height: 152px; border: 0; border-radius: 8px; margin-top: 10px; }
+    .spotify-link { display: inline-block; margin-top: 10px; color: var(--accent); text-decoration: none; font-size: 18px; }
+    .spotify-link:hover { text-decoration: underline; }
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(90, 40, 60, 0.55);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      padding: 20px;
+      position: fixed; inset: 0; z-index: 50; background: rgba(10, 4, 12, .78);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .35s; padding: 18px;
     }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
+    .modal-overlay.show { opacity: 1; pointer-events: auto; }
+    .letter {
+      width: min(440px, 100%); background: linear-gradient(165deg, #2a1520, #1a0f14);
+      border: 3px solid var(--line); box-shadow: 10px 10px 0 var(--shadow);
+      border-radius: 8px; padding: 26px 22px 28px; position: relative; text-align: center;
+      transform: scale(.92) translateY(12px); transition: transform .4s cubic-bezier(.34,1.4,.64,1);
     }
-
-    .modal {
-      background: linear-gradient(175deg, #fff9fb 0%, #ffeef5 100%);
-      border-radius: 28px;
-      max-width: 480px;
-      width: 100%;
-      padding: 28px 24px 32px;
-      box-shadow: 0 30px 80px rgba(196, 69, 105, 0.25);
-      transform: scale(0.88) translateY(20px);
-      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      overflow: hidden;
+    .modal-overlay.show .letter { transform: scale(1) translateY(0); }
+    .letter img {
+      width: 100%; border-radius: 10px; margin-bottom: 14px;
+      border: 2px solid var(--line); max-height: 280px; object-fit: cover;
     }
-
-    .modal-overlay.active .modal {
-      transform: scale(1) translateY(0);
+    .letter .gif-wrap { overflow: hidden; border-radius: 10px; margin-bottom: 14px; max-height: 260px; }
+    .letter .gif-wrap img { width: 100%; height: auto; display: block; margin: 0; border: 0; }
+    .letter h3 {
+      font-family: 'Press Start 2P', monospace; font-size: 12px; color: var(--accent); margin-bottom: 12px;
     }
-
-    .modal img, .modal .gif-wrap {
-      width: 100%;
-      border-radius: 18px;
-      display: block;
-      box-shadow: 0 12px 30px rgba(196, 69, 105, 0.15);
+    .letter p {
+      font-family: 'Quicksand', sans-serif; font-size: 15px; line-height: 1.65;
+      color: #f0d6de; white-space: pre-wrap;
     }
-
-    .modal .gif-wrap {
-      overflow: hidden;
-      max-height: 320px;
+    .letter .hearts { color: var(--accent); letter-spacing: 3px; margin-top: 10px; display: block; }
+    .close {
+      position: absolute; top: 10px; right: 12px; width: 32px; height: 32px;
+      border: 2px solid var(--line); background: var(--panel2); color: var(--text);
+      cursor: pointer; font-size: 18px; line-height: 1;
     }
-
-    .modal .gif-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
+    footer { text-align: center; padding: 20px; color: var(--muted); font-size: 18px; margin-bottom: 20px; }
+    .burst-heart {
+      position: fixed; left: 50%; top: 45%; pointer-events: none; z-index: 60;
+      font-size: 22px; color: var(--accent); animation: burst 1.3s ease-out forwards;
     }
-
-    .modal-text {
-      margin-top: 22px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      line-height: 1.65;
-      color: var(--deep);
-      text-align: center;
+    @keyframes burst {
+      0% { transform: translate(0,0) rotate(0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(.4); opacity: 0; }
     }
-
-    .modal-text .hearts {
-      color: var(--rose);
-      letter-spacing: 2px;
-      margin-top: 10px;
-      display: block;
-      font-size: 1.3rem;
+    .pumpkin {
+      position: absolute; font-size: 22px; opacity: .5;
+      animation: bob 3.5s ease-in-out infinite; pointer-events: none;
     }
-
-    .close-btn {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 182, 193, 0.4);
-      color: var(--deep);
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.25s;
-    }
-
-    .close-btn:hover {
-      background: rgba(255, 107, 157, 0.55);
-    }
-
-    .footer {
-      margin-top: 60px;
-      font-size: 0.8rem;
-      color: #d4a5b5;
-      letter-spacing: 1px;
-    }
-
-    /* little decorative elements */
-    .deco {
-      position: absolute;
-      font-size: 1.6rem;
-      opacity: 0.5;
-      animation: gentleBob 4s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes gentleBob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
   </style>
 </head>
 <body>
-  <div class="hearts-bg" id="heartsBg"></div>
+  <div class="sky"></div>
+  <div class="stars" aria-hidden="true">
+    <i>✦</i><i>✧</i><i>·</i><i>✦</i><i>·</i><i>✧</i><i>✦</i><i>♡</i><i>✦</i><i>·</i>
+  </div>
+  <div class="floaters" id="floaters"></div>
 
-  <div class="container">
-    <div class="deco" style="top: 30px; left: 8%;">♡</div>
-    <div class="deco" style="top: 80px; right: 10%; animation-delay: 1.2s;">✦</div>
+  <header class="topbar">
+    <div class="brand">for my pretty baby ♡</div>
+    <div class="mini-date">dani × darry</div>
+  </header>
 
-    <h1 class="title">iloveyousmmdaniwani</h1>
-    <p class="subtitle">for my pretty baby ♡</p>
+  <main>
+    <section class="hero card">
+      <div class="pumpkin" style="top:18px;left:12%;">🎃</div>
+      <div class="pumpkin" style="top:28px;right:14%;animation-delay:1s;">🦇</div>
+      <div class="pixel-heart" aria-hidden="true">♥</div>
+      <div class="bears" aria-hidden="true">
+        <div class="bear mocha">
+          <div class="head">
+            <div class="ear l"></div><div class="ear r"></div>
+            <div class="eye l"></div><div class="eye r"></div>
+            <div class="nose"></div>
+          </div>
+          <div class="body"><div class="scarf"></div></div>
+        </div>
+        <div class="bear milk">
+          <div class="head">
+            <div class="ear l"></div><div class="ear r"></div>
+            <div class="eye l"></div><div class="eye r"></div>
+            <div class="nose"></div>
+          </div>
+          <div class="body"><div class="scarf"></div></div>
+        </div>
+      </div>
+      <p class="eyebrow">a little halloween soft for you</p>
+      <h1>iloveyousmmdaniwani</h1>
+      <p class="subtitle-soft">do you still love me?</p>
+      <div class="choices">
+        <button class="btn primary" id="yesBtn">YES ♡</button>
+        <button class="btn ghost" id="noBtn">no…</button>
+      </div>
+      <p class="reaction" id="reaction"></p>
+    </section>
 
-    <div class="card">
-      <p class="love-line">
+    <div class="grid-2">
+      <article class="card counter-box">
+        <h2>time with you</h2>
+        <div id="days">0</div>
+        <div id="timeTogether">counting…</div>
+        <p style="margin-top:12px;color:var(--muted);font-size:17px;">roblox · vc · discord · us</p>
+      </article>
+      <article class="card">
+        <h2>our song</h2>
+        <button id="songBtn" class="btn primary">▶ open song</button>
+        <div id="songPanel" class="song-panel">
+          <div style="font-family:'Press Start 2P';font-size:11px;color:var(--accent);">our song ♡</div>
+          <iframe title="Spotify player"
+            src="https://open.spotify.com/embed/track/7H3ojI1BsVy0dEJENqMt1k?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+          <a href="https://open.spotify.com/track/7H3ojI1BsVy0dEJENqMt1k" target="_blank" rel="noopener" class="spotify-link">open in Spotify ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <article class="card">
+      <h2>from darry</h2>
+      <p class="love-note">
         i will hold hands with you until i die<br>
         and when our hearts collide in june<br>
         i will shower u with my love
+        <span class="from">— from darry</span>
       </p>
-      <p class="from">— from darry</p>
+    </article>
 
-      <div class="divider"></div>
+    <article class="card" style="text-align:center;">
+      <h2>little secrets</h2>
+      <p style="color:var(--muted);margin-bottom:14px;">tap the soft things…</p>
+      <div class="secrets-row">
+        <button class="secret-btn" id="secret1" title="a memory" aria-label="baby photo">🧸</button>
+        <button class="secret-btn" id="secret2" title="another secret" aria-label="gif">✧</button>
+        <button class="secret-btn" id="secret3" title="letter" aria-label="letter">💌</button>
+      </div>
+    </article>
+  </main>
 
-      <p style="font-size: 0.95rem; color: #9a6b7a; line-height: 1.6;">
-        every late night on roblox,<br>
-        every voice call that stretched too long,<br>
-        every message on discord…<br>
-        i keep them all.
-      </p>
+  <footer>made with all my soft for you · darry · 🎃♡</footer>
 
-      <p class="hint">there are little secrets waiting for you…</p>
-    </div>
-
-    <div class="secret-zone">
-      <button class="secret-btn" id="secret1" title="a little memory" aria-label="secret memory">🧸</button>
-      <button class="secret-btn" id="secret2" title="another secret" aria-label="secret gif">✧</button>
-    </div>
-
-    <p class="footer">made with all my soft for you · darry</p>
-  </div>
-
-  <!-- Modal 1: baby photo -->
   <div class="modal-overlay" id="modal1">
-    <div class="modal">
-      <button class="close-btn" data-close="modal1">✕</button>
+    <div class="letter">
+      <button class="close" data-close="modal1">×</button>
       <img src="https://litter.catbox.moe/dnli5k.jpg" alt="my pretty baby" />
-      <p class="modal-text">
-        from darry my baby<br>
-        we have spent sm time on roblox, vc, discord and all these other things<br>
-        this is how id like my babys to look
-        <span class="hearts">♡ ♡ ♡</span>
-      </p>
+      <h3>my pretty baby</h3>
+      <p>from darry my baby
+we have spent sm time on roblox, vc, discord and all these other things
+this is how id like my babys to look
+<span class="hearts">♡ ♡ ♡</span></p>
     </div>
   </div>
 
-  <!-- Modal 2: gif -->
   <div class="modal-overlay" id="modal2">
-    <div class="modal">
-      <button class="close-btn" data-close="modal2">✕</button>
+    <div class="letter">
+      <button class="close" data-close="modal2">×</button>
       <div class="gif-wrap">
         <img src="https://litter.catbox.moe/0pmw7k.gif" alt="us" />
       </div>
-      <p class="modal-text">
-        i will hold hands with you until i die<br>
-        and when our hearts collide in june<br>
-        i will shower u with my love
-        <span class="hearts">♡ from darry ♡</span>
-      </p>
+      <h3>us</h3>
+      <p>i will hold hands with you until i die
+and when our hearts collide in june
+i will shower u with my love
+<span class="hearts">♡ from darry ♡</span></p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal3">
+    <div class="letter">
+      <button class="close" data-close="modal3">×</button>
+      <h3>for dani,</h3>
+      <p>you are my soft place and my favorite person.
+every late night, every voice call, every silly roblox run — i keep them all.
+
+i choose you. today, june, forever.
+
+<span class="hearts">♡ darry</span></p>
     </div>
   </div>
 
   <script>
-    // floating hearts
-    const heartsBg = document.getElementById('heartsBg');
-    const heartChars = ['♡', '♥', '❀', '✦', '⋆'];
-    for (let i = 0; i < 22; i++) {
+    const floatChars = ['♡','🎃','✦','🦇','✧','♥','⋆'];
+    const floaters = document.getElementById('floaters');
+    for (let i = 0; i < 16; i++) {
       const el = document.createElement('div');
-      el.className = 'floating-heart';
-      el.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+      el.className = 'floater';
+      el.textContent = floatChars[Math.floor(Math.random() * floatChars.length)];
       el.style.left = Math.random() * 100 + 'vw';
-      el.style.animationDuration = (12 + Math.random() * 18) + 's';
+      el.style.animationDuration = (14 + Math.random() * 16) + 's';
       el.style.animationDelay = (Math.random() * 12) + 's';
-      el.style.fontSize = (14 + Math.random() * 16) + 'px';
-      heartsBg.appendChild(el);
+      el.style.fontSize = (14 + Math.random() * 14) + 'px';
+      floaters.appendChild(el);
     }
 
-    // sparkles
-    for (let i = 0; i < 18; i++) {
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.top = Math.random() * 100 + 'vh';
-      s.style.animationDelay = (Math.random() * 3) + 's';
-      s.style.animationDuration = (1.8 + Math.random() * 2) + 's';
-      document.body.appendChild(s);
+    const START_DATE = "2025-03-12T00:00:00";
+    function updateCounter() {
+      const start = new Date(START_DATE);
+      const now = new Date();
+      const ms = Math.max(0, now - start);
+      const days = Math.floor(ms / 86400000);
+      const hours = Math.floor(ms / 3600000) % 24;
+      const minutes = Math.floor(ms / 60000) % 60;
+      const seconds = Math.floor(ms / 1000) % 60;
+      document.getElementById('days').textContent = days.toLocaleString();
+      document.getElementById('timeTogether').textContent =
+        days.toLocaleString() + ' days · ' +
+        String(hours).padStart(2,'0') + ':' +
+        String(minutes).padStart(2,'0') + ':' +
+        String(seconds).padStart(2,'0');
     }
+    setInterval(updateCounter, 1000);
+    updateCounter();
 
-    // modals
-    const modal1 = document.getElementById('modal1');
-    const modal2 = document.getElementById('modal2');
-
-    document.getElementById('secret1').addEventListener('click', () => {
-      modal1.classList.add('active');
-    });
-
-    document.getElementById('secret2').addEventListener('click', () => {
-      modal2.classList.add('active');
-    });
-
-    document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById(btn.dataset.close).classList.remove('active');
-      });
-    });
-
-    // close on overlay click
-    [modal1, modal2].forEach(m => {
-      m.addEventListener('click', (e) => {
-        if (e.target === m) m.classList.remove('active');
-      });
-    });
-
-    // escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal1.classList.remove('active');
-        modal2.classList.remove('active');
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const reaction = document.getElementById('reaction');
+    let noClicks = 0;
+    const noLines = [
+      "are you sure? 🥺", "really?? 😭", "think again... ♡",
+      "the heart says yes...", "dani is waiting... 👀", "okay, you're making me blush 😭💕"
+    ];
+    noBtn.addEventListener('click', () => {
+      noClicks++;
+      noBtn.textContent = noLines[Math.min(noClicks - 1, noLines.length - 1)];
+      reaction.textContent = noClicks < 4
+        ? "hmm... i don't think that was the answer you meant. ♡"
+        : "okay okay... i'll give you one more chance. 💗";
+      noBtn.classList.add('wiggle');
+      setTimeout(() => noBtn.classList.remove('wiggle'), 450);
+      if (noClicks >= 6) {
+        noBtn.textContent = "fine... YES ♡";
+        noBtn.onclick = () => yesBtn.click();
       }
+    });
+    yesBtn.addEventListener('click', () => {
+      reaction.textContent = "i knew it. then come a little closer... i have something for you. 💕";
+      yesBtn.textContent = "♡ forever & always ♡";
+      noBtn.style.display = 'none';
+      yesBtn.classList.add('celebrate');
+      burstHearts();
+    });
+    function burstHearts() {
+      for (let i = 0; i < 18; i++) {
+        const h = document.createElement('span');
+        h.className = 'burst-heart';
+        h.textContent = ['♥','♡','✦','🎃'][Math.floor(Math.random()*4)];
+        h.style.setProperty('--x', ((Math.random()-.5)*280) + 'px');
+        h.style.setProperty('--y', (-80 - Math.random()*180) + 'px');
+        h.style.setProperty('--r', ((Math.random()*80-40)) + 'deg');
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 1400);
+      }
+    }
+
+    document.getElementById('songBtn').addEventListener('click', () => {
+      document.getElementById('songPanel').classList.toggle('open');
+    });
+
+    ['secret1','secret2','secret3'].forEach((id, i) => {
+      document.getElementById(id).addEventListener('click', () => {
+        document.getElementById('modal' + (i+1)).classList.add('show');
+      });
+    });
+    document.querySelectorAll('.close').forEach(btn => {
+      btn.addEventListener('click', () => document.getElementById(btn.dataset.close).classList.remove('show'));
+    });
+    document.querySelectorAll('.modal-overlay').forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
     });
   </script>
 </body>
