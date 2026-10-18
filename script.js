@@ -89,3 +89,7 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
     });
+
+document.getElementById('halloweenSecret')?.addEventListener('click', () => {
+  document.getElementById('modalHalloween').classList.add('show');
+});
