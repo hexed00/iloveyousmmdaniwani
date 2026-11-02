@@ -111,6 +111,25 @@
       color: var(--muted);
       opacity: .85;
     }
+    .mem-btn {
+      display: inline-block;
+      margin-top: 22px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      padding: 12px 16px;
+      border: 3px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      text-decoration: none;
+      box-shadow: 4px 4px 0 var(--shadow);
+      transition: transform .15s, box-shadow .15s, color .15s, border-color .15s;
+    }
+    .mem-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--shadow);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
     footer {
       margin-top: 28px;
       font-size: 14px;
@@ -139,6 +158,7 @@
         no more soft hours. no more us.
       </p>
       <p class="from">— darry</p>
+      <a class="mem-btn" href="memory.html">view the original ♡</a>
     </div>
     <footer>dani × darry · ended</footer>
   </div>
