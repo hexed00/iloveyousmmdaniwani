@@ -42,12 +42,7 @@
     .stars i:nth-child(9){left:88%;top:35%} .stars i:nth-child(10){left:33%;top:22%}
     .stars i:nth-child(11){left:60%;top:88%} .stars i:nth-child(12){left:5%;top:50%}
     @keyframes twinkle { 0%,100%{opacity:.15} 50%{opacity:.7} }
-
-    .wrap {
-      width: min(520px, 92%);
-      text-align: center;
-      padding: 28px 18px 40px;
-    }
+    .wrap { width: min(520px, 92%); text-align: center; padding: 28px 18px 40px; }
     .card {
       border: 3px solid var(--line);
       background: rgba(26, 15, 28, .92);
@@ -57,85 +52,40 @@
     }
     .pixel-heart {
       font-size: 48px; line-height: 1; color: var(--muted);
-      text-shadow: 3px 3px 0 var(--shadow);
-      opacity: .55;
-      margin-bottom: 8px;
-      display: inline-block;
+      text-shadow: 3px 3px 0 var(--shadow); opacity: .55; margin-bottom: 8px; display: inline-block;
     }
     .eyebrow {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 13px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
+      font-family: 'Quicksand', sans-serif; font-size: 13px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
     }
     h1 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: clamp(13px, 3.6vw, 18px);
-      color: var(--accent);
-      text-shadow: 3px 3px 0 var(--shadow);
-      line-height: 1.55;
-      margin-bottom: 18px;
+      font-family: 'Press Start 2P', monospace; font-size: clamp(13px, 3.6vw, 18px);
+      color: var(--accent); text-shadow: 3px 3px 0 var(--shadow); line-height: 1.55; margin-bottom: 18px;
     }
-    .ended {
-      font-size: 28px;
-      color: var(--text);
-      margin: 10px 0 6px;
-      letter-spacing: .04em;
-    }
+    .ended { font-size: 28px; color: var(--text); margin: 10px 0 6px; letter-spacing: .04em; }
     .days-ended {
-      font-family: 'Press Start 2P', monospace;
-      font-size: clamp(11px, 2.8vw, 14px);
-      color: var(--pink);
-      text-shadow: 2px 2px 0 var(--shadow);
-      margin: 8px 0 20px;
+      font-family: 'Press Start 2P', monospace; font-size: clamp(11px, 2.8vw, 14px);
+      color: var(--pink); text-shadow: 2px 2px 0 var(--shadow); margin: 8px 0 20px;
     }
     .note {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-      max-width: 340px;
-      margin: 0 auto 22px;
+      font-family: 'Quicksand', sans-serif; font-size: 15px; color: var(--muted);
+      line-height: 1.65; max-width: 340px; margin: 0 auto 22px;
     }
-    .line {
-      width: 48px;
-      height: 2px;
-      background: var(--line);
-      margin: 0 auto 20px;
-      opacity: .7;
-    }
-    .from {
-      font-size: 16px;
-      color: var(--muted);
-      opacity: .85;
-    }
+    .line { width: 48px; height: 2px; background: var(--line); margin: 0 auto 20px; opacity: .7; }
+    .from { font-size: 16px; color: var(--muted); opacity: .85; }
     .mem-btn {
-      display: inline-block;
-      margin-top: 22px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 10px;
-      padding: 12px 16px;
-      border: 3px solid var(--line);
-      background: transparent;
-      color: var(--muted);
-      text-decoration: none;
-      box-shadow: 4px 4px 0 var(--shadow);
-      transition: transform .15s, box-shadow .15s, color .15s, border-color .15s;
+      display: inline-block; margin-top: 26px;
+      font-family: 'Press Start 2P', monospace; font-size: 11px;
+      padding: 16px 22px; border: 3px solid #c45a78;
+      background: #ff8fab; color: #2a1018; text-decoration: none;
+      box-shadow: 6px 6px 0 #0d0609;
+      transition: transform .15s, box-shadow .15s, filter .15s;
     }
     .mem-btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--shadow);
-      color: var(--accent);
-      border-color: var(--accent);
+      transform: translate(-3px, -3px); box-shadow: 9px 9px 0 #0d0609; filter: brightness(1.08);
     }
-    footer {
-      margin-top: 28px;
-      font-size: 14px;
-      color: var(--muted);
-      opacity: .55;
-    }
+    .mem-btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #0d0609; }
+    footer { margin-top: 28px; font-size: 14px; color: var(--muted); opacity: .55; }
   </style>
 </head>
 <body>
@@ -143,7 +93,6 @@
   <div class="stars" aria-hidden="true">
     <i>✦</i><i>✧</i><i>·</i><i>✦</i><i>·</i><i>✧</i><i>✦</i><i>♡</i><i>✦</i><i>·</i><i>✧</i><i>✦</i>
   </div>
-
   <div class="wrap">
     <div class="card">
       <div class="pixel-heart" aria-hidden="true">♡</div>
