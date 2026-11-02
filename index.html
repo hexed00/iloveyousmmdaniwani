@@ -4,63 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#1a0f14" />
-  <title>iloveyousmmdaniwani</title>
+  <title>iloveyousmmdaniwani — days ended</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧸</text></svg>" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧸</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #1a0f14; --panel: #2a1520; --panel2: #3d1f2e;
+      --text: #fff0e6; --muted: #c9a8b0; --accent: #ff8fab;
+      --accent2: #ffb347; --line: #8b4558; --shadow: #0d0609;
+      --pink: #ffc0d9;
+    }
+    html { scroll-behavior: smooth; }
     body {
-      min-height: 100vh;
-      background: #1a0f14;
-      color: #fff0e6;
-      font-family: 'VT323', monospace;
-      font-size: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 100vh; background: var(--bg); color: var(--text);
+      font-family: 'VT323', monospace; font-size: 21px; overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\"><text y=\"24\" font-size=\"22\">🧸</text></svg>') 12 12, auto;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .sky {
+      position: fixed; inset: 0; z-index: -3;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255,143,171,.12), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(255,159,67,.08), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(179,136,255,.08), transparent 40%),
+        linear-gradient(180deg, #1a0f14 0%, #120a18 55%, #0a0610 100%);
+    }
+    .stars { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .4; }
+    .stars i { position: absolute; font-style: normal; color: #ffd6e7; animation: twinkle 3.2s steps(2, end) infinite; }
+    .stars i:nth-child(1){left:8%;top:12%} .stars i:nth-child(2){left:78%;top:9%}
+    .stars i:nth-child(3){left:22%;top:42%} .stars i:nth-child(4){left:90%;top:55%}
+    .stars i:nth-child(5){left:65%;top:28%} .stars i:nth-child(6){left:40%;top:8%}
+    .stars i:nth-child(7){left:52%;top:72%} .stars i:nth-child(8){left:15%;top:68%}
+    .stars i:nth-child(9){left:88%;top:35%} .stars i:nth-child(10){left:33%;top:22%}
+    .stars i:nth-child(11){left:60%;top:88%} .stars i:nth-child(12){left:5%;top:50%}
+    @keyframes twinkle { 0%,100%{opacity:.15} 50%{opacity:.7} }
+
+    .wrap {
+      width: min(520px, 92%);
       text-align: center;
-      padding: 24px;
+      padding: 28px 18px 40px;
     }
-    .box {
-      border: 3px solid #8b4558;
-      background: rgba(26, 15, 28, .95);
-      box-shadow: 8px 8px 0 #0d0609;
-      border-radius: 10px;
-      padding: 40px 28px;
-      max-width: 420px;
+    .card {
+      border: 3px solid var(--line);
+      background: rgba(26, 15, 28, .92);
+      box-shadow: 8px 8px 0 var(--shadow);
+      border-radius: 8px;
+      padding: 36px 26px 32px;
     }
-    .heart {
-      font-size: 42px;
-      color: #ff8fab;
-      margin-bottom: 16px;
-      animation: pulse 1.4s steps(2, end) infinite;
+    .pixel-heart {
+      font-size: 48px; line-height: 1; color: var(--muted);
+      text-shadow: 3px 3px 0 var(--shadow);
+      opacity: .55;
+      margin-bottom: 8px;
+      display: inline-block;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+    .eyebrow {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
     }
     h1 {
       font-family: 'Press Start 2P', monospace;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #ff8fab;
+      font-size: clamp(13px, 3.6vw, 18px);
+      color: var(--accent);
+      text-shadow: 3px 3px 0 var(--shadow);
+      line-height: 1.55;
       margin-bottom: 18px;
     }
-    p { color: #c9a8b0; line-height: 1.5; }
+    .ended {
+      font-size: 28px;
+      color: var(--text);
+      margin: 10px 0 6px;
+      letter-spacing: .04em;
+    }
+    .days-ended {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(11px, 2.8vw, 14px);
+      color: var(--pink);
+      text-shadow: 2px 2px 0 var(--shadow);
+      margin: 8px 0 20px;
+    }
     .note {
-      margin-top: 22px;
-      font-size: 18px;
-      color: #8b4558;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 340px;
+      margin: 0 auto 22px;
+    }
+    .line {
+      width: 48px;
+      height: 2px;
+      background: var(--line);
+      margin: 0 auto 20px;
+      opacity: .7;
+    }
+    .from {
+      font-size: 16px;
+      color: var(--muted);
+      opacity: .85;
+    }
+    footer {
+      margin-top: 28px;
+      font-size: 14px;
+      color: var(--muted);
+      opacity: .55;
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <div class="heart">♡</div>
-    <h1>be right back</h1>
-    <p>this little place is taking a soft pause.</p>
-    <p style="margin-top:10px;">come back soon, pretty baby.</p>
-    <p class="note">— darry</p>
+  <div class="sky"></div>
+  <div class="stars" aria-hidden="true">
+    <i>✦</i><i>✧</i><i>·</i><i>✦</i><i>·</i><i>✧</i><i>✦</i><i>♡</i><i>✦</i><i>·</i><i>✧</i><i>✦</i>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="pixel-heart" aria-hidden="true">♡</div>
+      <p class="eyebrow">iloveyousmmdaniwani</p>
+      <h1>days ended</h1>
+      <div class="line"></div>
+      <p class="ended">we broke up</p>
+      <p class="days-ended">the days are over</p>
+      <p class="note">
+        this little page used to count our time together.<br>
+        that chapter closed.<br>
+        no more soft hours. no more us.
+      </p>
+      <p class="from">— darry</p>
+    </div>
+    <footer>dani × darry · ended</footer>
   </div>
 </body>
 </html>
